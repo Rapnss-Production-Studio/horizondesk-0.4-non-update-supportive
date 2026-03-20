@@ -1,0 +1,61 @@
+# horizondesk-sdk SDK
+
+This SDK provides the official interface for building plugins for **Horizon Desk**. It allows developers to extend OmniAgent's capabilities with custom tools and connect external AI workers.
+
+## Installation
+```bash
+pip install horizondesk-sdk
+```
+
+## Quick Start: Create your first plugin
+
+### 1. Initialize
+Run the following command to scaffold a new plugin project:
+```bash
+horizondesk-sdk init MyAmazingPlugin
+```
+
+### 2. Define a Tool
+Edit `main.py` to create your own tools:
+```python
+from horizondesk_sdk import BaseTool, HorizonPlugin
+
+class WeatherTool(BaseTool):
+    def __init__(self):
+        super().__init__("GetWeather", "Gets current weather for a city. Input: 'city'.")
+
+    def execute(self, city=None, payload=None):
+        return f"It is 22°C and sunny in {city}."
+
+def register_tools(agent):
+    plugin = HorizonPlugin("MyAmazingPlugin")
+    plugin.add_tool(WeatherTool())
+    plugin.register_all(agent)
+```
+
+### 3. Run the Workshop
+Launch the high-fidelity GUI Workshop to test your plugin:
+```bash
+horizondesk-sdk run horizon_plugin.raf
+```
+
+## Security & Privacy
+- **SecretStorage**: Always use `SecretStorage.get_secret("KEY")` to access API keys. Do not hardcode them.
+- **Redaction**: Use `SecretStorage.redact_pii(text)` before sending data to external workers.
+- **Auditing**: All plugin tools are visible to the user and subject to manual intervention (Alt+F7).
+
+## Connecting External Agents
+To link your own AI worker, create a tool that performs a secure HTTP request to your backend:
+```python
+import requests
+from horizondesk_sdk import BaseTool, SecretStorage
+
+class ExternalBrainBridge(BaseTool):
+    def __init__(self):
+        super().__init__("AskMyBot", "Consults my specialized AI model.")
+
+    def execute(self, **kwargs):
+        api_key = SecretStorage.get_secret("MY_BOT_API_KEY")
+        response = requests.post("https://my-api.com/v1/chat", json=kwargs, headers={"Auth": api_key})
+        return response.json().get("reply")
+```

@@ -1,0 +1,7 @@
+{
+    "name": "CanvaMCP",
+    "entry_point": "main.py",
+    "description": "Integration with Canva via MCP simulation",
+    "version": "1.0",
+    "developer": "Horizon Team"
+}

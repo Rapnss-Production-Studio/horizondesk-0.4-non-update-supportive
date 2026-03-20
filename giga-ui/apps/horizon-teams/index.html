@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Teams</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a18 0%, #0a1830 40%, #0a2040 100%);
+            color: #e8e8f0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background: rgba(14, 14, 26, 0.8);
+            border-bottom: 1px solid rgba(42, 42, 66, 0.5);
+            -webkit-app-region: drag;
+        }
+
+        .header-icon {
+            font-size: 22px;
+            margin-right: 10px;
+        }
+
+        .header-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .header-badge {
+            margin-left: 10px;
+            padding: 2px 10px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #1d4ed8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 20px 60px rgba(59, 130, 246, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 25px 80px rgba(59, 130, 246, 0.5);
+            }
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #9a9ab8;
+            margin-top: -20px;
+        }
+
+        .coming-soon {
+            padding: 10px 28px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #60a5fa;
+        }
+
+        /* Chat Mockup */
+        .chat-preview {
+            width: 400px;
+            background: rgba(14, 14, 26, 0.6);
+            border: 1px solid rgba(42, 42, 66, 0.5);
+            border-radius: 14px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .chat-sidebar-header {
+            padding: 10px 14px;
+            background: rgba(20, 20, 40, 0.5);
+            border-bottom: 1px solid rgba(42, 42, 66, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            color: #9a9ab8;
+        }
+
+        .chat-messages {
+            padding: 12px 16px;
+        }
+
+        .chat-msg {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 14px;
+        }
+
+        .chat-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .chat-bubble {
+            background: rgba(30, 30, 50, 0.5);
+            border: 1px solid rgba(42, 42, 66, 0.4);
+            border-radius: 12px;
+            padding: 10px 14px;
+            font-size: 12px;
+            line-height: 1.5;
+            color: rgba(232, 232, 240, 0.8);
+        }
+
+        .chat-name {
+            font-size: 10px;
+            font-weight: 600;
+            color: #60a5fa;
+            margin-bottom: 4px;
+        }
+
+        .features {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .feature-card {
+            padding: 16px 20px;
+            background: rgba(20, 20, 40, 0.6);
+            border: 1px solid rgba(42, 42, 66, 0.5);
+            border-radius: 14px;
+            text-align: center;
+            width: 140px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .feature-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: #9a9ab8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <span class="header-icon">👥</span>
+        <span class="header-title">Horizon Teams</span>
+        <span class="header-badge">Coming Soon</span>
+    </div>
+
+    <div class="main">
+        <div class="logo">👥</div>
+        <div class="title">Horizon Teams</div>
+        <div class="subtitle">Collaborate and communicate with your team</div>
+        <div class="coming-soon">✦ Coming Soon</div>
+
+        <div class="chat-preview">
+            <div class="chat-sidebar-header">
+                <span>💬</span> #general
+            </div>
+            <div class="chat-messages">
+                <div class="chat-msg">
+                    <div class="chat-avatar" style="background:linear-gradient(135deg,#818cf8,#6366f1)">A</div>
+                    <div>
+                        <div class="chat-name">Aarav</div>
+                        <div class="chat-bubble">Hey team! The new Horizon features are looking amazing 🚀</div>
+                    </div>
+                </div>
+                <div class="chat-msg">
+                    <div class="chat-avatar" style="background:linear-gradient(135deg,#34d399,#059669)">H</div>
+                    <div>
+                        <div class="chat-name">Horizon AI</div>
+                        <div class="chat-bubble">Thanks! I've analyzed the latest metrics — productivity is up 34% ✦
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <div class="feature-name">Real-time Chat</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📹</div>
+                <div class="feature-name">Video Calls</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🤝</div>
+                <div class="feature-name">Collaboration</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

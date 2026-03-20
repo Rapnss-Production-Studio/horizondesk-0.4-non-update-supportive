@@ -1,0 +1,7 @@
+{
+    "name": "CalculatorPlugin",
+    "version": "1.0.0",
+    "developer": "Aarav Kushwaha",
+    "description": "A specialized plugin for CalculatorPlugin",
+    "entry_point": "main.py"
+}

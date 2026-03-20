@@ -1,0 +1,2 @@
+ALTER TABLE users ADD COLUMN verified INTEGER DEFAULT 0;
+ALTER TABLE users ADD COLUMN verify_code TEXT;

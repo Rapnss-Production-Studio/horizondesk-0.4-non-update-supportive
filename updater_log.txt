@@ -1,0 +1,16 @@
+--- Update Loop Start: 2026-03-18 11:38:44 ---
+[2026-03-18 11:38:44] [Updater] Background update started for: C:\Users\Aarav Kushwaha\Desktop\Horizon desk\horizon_update_1773814119.zip
+[2026-03-18 11:38:44] [Updater] Target directory: C:\Users\Aarav Kushwaha\Desktop\Horizon desk
+[2026-03-18 11:38:44] [Updater] Backing up memory from C:\Users\Aarav Kushwaha\AppData\Local\Omniagent to C:\Users\AARAVK~1\AppData\Local\Temp\Omniagent_Backup...
+[2026-03-18 11:38:44] [Updater] Backup complete.
+[2026-03-18 11:38:44] [Updater] Extracting C:\Users\Aarav Kushwaha\Desktop\Horizon desk\horizon_update_1773814119.zip into temporary directory...
+[2026-03-18 11:38:44] [Updater] Found navigator.txt, performing instruction-based update...
+[2026-03-18 11:38:44] [Updater] Successfully read navigator.txt with utf-16 encoding.
+[2026-03-18 11:38:44] [Updater] Read 1 lines from navigator.txt
+[2026-03-18 11:38:44] [Updater] Updating: v04_test.txt -> v04_test.txt
+[2026-03-18 11:38:44] [Updater] Cleaning up temporary extraction files...
+[2026-03-18 11:38:44] [Updater] Processing complete.
+[2026-03-18 11:38:44] [Updater] Updating version.json to v0.4
+[2026-03-18 11:38:44] [Updater] Restoring memory from C:\Users\AARAVK~1\AppData\Local\Temp\Omniagent_Backup to C:\Users\Aarav Kushwaha\AppData\Local\Omniagent...
+[2026-03-18 11:38:45] [Updater] Restore complete.
+[2026-03-18 11:38:45] [Updater] Update finished successfully. The user can now restart the application.

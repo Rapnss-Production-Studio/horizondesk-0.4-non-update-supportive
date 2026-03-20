@@ -1,0 +1,16 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+horizondesk_sdk/__init__.py
+horizondesk_sdk/base.py
+horizondesk_sdk/cli.py
+horizondesk_sdk/credentials.py
+horizondesk_sdk/mock_agent.py
+horizondesk_sdk/security.py
+horizondesk_sdk.egg-info/PKG-INFO
+horizondesk_sdk.egg-info/SOURCES.txt
+horizondesk_sdk.egg-info/dependency_links.txt
+horizondesk_sdk.egg-info/entry_points.txt
+horizondesk_sdk.egg-info/requires.txt
+horizondesk_sdk.egg-info/top_level.txt

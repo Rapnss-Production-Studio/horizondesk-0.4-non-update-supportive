@@ -1,0 +1,8 @@
+{
+    "name": "TestPlugin",
+    "version": "1.0.0",
+    "developer": "Aarav Kushwaha",
+    "description": "A specialized plugin for TestPlugin",
+    "entry_point": "main.py",
+    "category": "general"
+}

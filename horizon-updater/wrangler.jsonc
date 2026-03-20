@@ -1,0 +1,48 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "horizon-updater",
+	"main": "src/index.js",
+	"compatibility_date": "2026-02-05",
+	"assets": {
+		"directory": "./public"
+	},
+	"durable_objects": {
+		"bindings": [
+			{
+				"class_name": "RateLimiterDO",
+				"name": "RATE_LIMITER"
+			}
+		]
+	},
+	"migrations": [
+		{
+			"new_sqlite_classes": [
+				"RateLimiterDO"
+			],
+			"tag": "v2"
+		}
+	],
+	"observability": {
+		"enabled": true
+	},
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	/**
+	 * Service binding to the AI worker (zero-latency internal call).
+	 * Make sure the "ai" worker is deployed first.
+	 */
+	"services": [
+		{
+			"binding": "AI_WORKER",
+			"service": "ai"
+		}
+	],
+	/**
+	 * Fallback URL if service binding isn't available (e.g. local dev).
+	 * Override via `wrangler secret put AI_WORKER_URL` or set here.
+	 */
+	"vars": {
+		"AI_WORKER_URL": "https://ai.your-subdomain.workers.dev"
+	}
+}

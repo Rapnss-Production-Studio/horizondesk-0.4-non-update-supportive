@@ -1,0 +1,7 @@
+{
+    "name": "MathWizard",
+    "version": "1.0.0",
+    "developer": "Horizon Dev",
+    "description": "Adds advanced math capabilities.",
+    "entry_point": "plugin.py"
+}

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon App Development Studio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a18 0%, #18100a 40%, #201508 100%);
+            color: #e8e8f0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background: rgba(14, 14, 26, 0.8);
+            border-bottom: 1px solid rgba(42, 42, 66, 0.5);
+            -webkit-app-region: drag;
+        }
+
+        .header-icon {
+            font-size: 22px;
+            margin-right: 10px;
+        }
+
+        .header-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .header-badge {
+            margin-left: 10px;
+            padding: 2px 10px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #d97706 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+            box-shadow: 0 20px 60px rgba(245, 158, 11, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 20px 60px rgba(245, 158, 11, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 25px 80px rgba(245, 158, 11, 0.5);
+            }
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #9a9ab8;
+            margin-top: -16px;
+        }
+
+        .coming-soon {
+            padding: 10px 28px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fbbf24;
+        }
+
+        /* Code Editor Mockup */
+        .code-preview {
+            width: 480px;
+            background: rgba(14, 14, 26, 0.7);
+            border: 1px solid rgba(42, 42, 66, 0.5);
+            border-radius: 14px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .code-tabs {
+            display: flex;
+            align-items: center;
+            background: rgba(20, 20, 40, 0.5);
+            border-bottom: 1px solid rgba(42, 42, 66, 0.4);
+            padding: 0 8px;
+        }
+
+        .code-tab {
+            padding: 8px 14px;
+            font-size: 11px;
+            color: #5a5a7a;
+            border-bottom: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .code-tab.active {
+            color: #fbbf24;
+            border-bottom-color: #f59e0b;
+        }
+
+        .code-body {
+            padding: 14px 16px;
+            font-family: 'Fira Code', monospace;
+            font-size: 12px;
+            line-height: 1.8;
+        }
+
+        .code-line {
+            display: flex;
+        }
+
+        .line-num {
+            width: 30px;
+            color: #3a3a5a;
+            text-align: right;
+            margin-right: 16px;
+            font-size: 11px;
+        }
+
+        .keyword {
+            color: #c084fc;
+        }
+
+        .string {
+            color: #34d399;
+        }
+
+        .func {
+            color: #fbbf24;
+        }
+
+        .comment {
+            color: #4a4a6a;
+            font-style: italic;
+        }
+
+        .var {
+            color: #60a5fa;
+        }
+
+        .op {
+            color: #9a9ab8;
+        }
+
+        .features {
+            display: flex;
+            gap: 16px;
+            margin-top: 4px;
+        }
+
+        .feature-card {
+            padding: 16px 20px;
+            background: rgba(20, 20, 40, 0.6);
+            border: 1px solid rgba(42, 42, 66, 0.5);
+            border-radius: 14px;
+            text-align: center;
+            width: 130px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(245, 158, 11, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .feature-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: #9a9ab8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <span class="header-icon">🛠️</span>
+        <span class="header-title">Horizon App Development Studio</span>
+        <span class="header-badge">Coming Soon</span>
+    </div>
+
+    <div class="main">
+        <div class="logo">🛠️</div>
+        <div class="title">Dev Studio</div>
+        <div class="subtitle">Build apps with AI — no code required</div>
+        <div class="coming-soon">✦ Coming Soon</div>
+
+        <div class="code-preview">
+            <div class="code-tabs">
+                <div class="code-tab active">main.py</div>
+                <div class="code-tab">ui.html</div>
+                <div class="code-tab">config.json</div>
+            </div>
+            <div class="code-body">
+                <div class="code-line"><span class="line-num">1</span><span class="comment"># AI-generated Horizon
+                        App</span></div>
+                <div class="code-line"><span class="line-num">2</span><span class="keyword">from</span> <span
+                        class="var">horizon</span> <span class="keyword">import</span> <span
+                        class="func">App</span><span class="op">,</span> <span class="func">AI</span></div>
+                <div class="code-line"><span class="line-num">3</span></div>
+                <div class="code-line"><span class="line-num">4</span><span class="var">app</span> <span
+                        class="op">=</span> <span class="func">App</span><span class="op">(</span><span
+                        class="string">"My App"</span><span class="op">)</span></div>
+                <div class="code-line"><span class="line-num">5</span><span class="var">ai</span> <span
+                        class="op">=</span> <span class="func">AI</span><span class="op">.</span><span
+                        class="func">connect</span><span class="op">()</span></div>
+                <div class="code-line"><span class="line-num">6</span></div>
+                <div class="code-line"><span class="line-num">7</span><span class="keyword">@</span><span
+                        class="var">app</span><span class="op">.</span><span class="func">route</span><span
+                        class="op">(</span><span class="string">"/"</span><span class="op">)</span></div>
+                <div class="code-line"><span class="line-num">8</span><span class="keyword">def</span> <span
+                        class="func">home</span><span class="op">():</span></div>
+                <div class="code-line"><span class="line-num">9</span>&nbsp;&nbsp;<span class="keyword">return</span>
+                    <span class="var">ai</span><span class="op">.</span><span class="func">render</span><span
+                        class="op">(</span><span class="string">"dashboard"</span><span class="op">)</span></div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <div class="feature-name">AI Codegen</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <div class="feature-name">Visual Builder</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <div class="feature-name">1-Click Deploy</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📦</div>
+                <div class="feature-name">Packages</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,14 @@
+groq
+firebase-admin
+python-dotenv
+requests
+Pillow
+pywinauto
+pyautogui
+colorama
+pynput
+networkx
+pyyaml
+pyperclip
+psutil
+pywebview

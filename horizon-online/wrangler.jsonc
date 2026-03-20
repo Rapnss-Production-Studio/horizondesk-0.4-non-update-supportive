@@ -1,0 +1,50 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "horizon-online",
+	"main": "src/index.js",
+	"compatibility_date": "2026-01-31",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"assets": {
+		"directory": "./public"
+	},
+	"ai": {
+		"binding": "AI"
+	},
+	"durable_objects": {
+		"bindings": [
+			{
+				"class_name": "TeamRoom",
+				"name": "TEAM_ROOM"
+			}
+		]
+	},
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "horizon-db",
+			"database_id": "8b70e4ea-0cc6-4324-a393-e0dbacbdfbfa" // Placeholder ID, user needs to create one 
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "TEAM_CODES",
+			"id": "932a01e9f4214910a9766080944b109a",
+			"preview_id": "932a01e9f4214910a9766080944b109a"
+		}
+	],
+	"migrations": [
+		{
+			"new_sqlite_classes": [
+				"TeamRoom"
+			],
+			"tag": "v1"
+		}
+	],
+	"observability": {
+		"enabled": true
+	},
+	"workers_dev": true,
+	"preview_urls": false
+}

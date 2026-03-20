@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon Sheet Studio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0a0a18 0%, #0a1a1a 40%, #0e2018 100%);
+            color: #e8e8f0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            background: rgba(14, 14, 26, 0.8);
+            border-bottom: 1px solid rgba(42, 42, 66, 0.5);
+            -webkit-app-region: drag;
+        }
+
+        .header-icon {
+            font-size: 22px;
+            margin-right: 10px;
+        }
+
+        .header-title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .header-badge {
+            margin-left: 10px;
+            padding: 2px 10px;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border-radius: 10px;
+        }
+
+        .main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+            box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 20px 60px rgba(16, 185, 129, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 25px 80px rgba(16, 185, 129, 0.5);
+            }
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #9a9ab8;
+            margin-top: -20px;
+        }
+
+        .coming-soon {
+            padding: 10px 28px;
+            background: rgba(52, 211, 153, 0.1);
+            border: 1px solid rgba(52, 211, 153, 0.2);
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #34d399;
+        }
+
+        /* Spreadsheet Mockup */
+        .spreadsheet-preview {
+            background: rgba(14, 14, 26, 0.6);
+            border: 1px solid rgba(42, 42, 66, 0.5);
+            border-radius: 14px;
+            overflow: hidden;
+            width: 400px;
+            backdrop-filter: blur(10px);
+        }
+
+        .sheet-header {
+            display: grid;
+            grid-template-columns: 40px repeat(5, 1fr);
+            background: rgba(20, 40, 30, 0.4);
+            border-bottom: 1px solid rgba(42, 42, 66, 0.4);
+        }
+
+        .sheet-cell {
+            padding: 8px 12px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #9a9ab8;
+            border-right: 1px solid rgba(42, 42, 66, 0.3);
+            text-align: center;
+        }
+
+        .sheet-row {
+            display: grid;
+            grid-template-columns: 40px repeat(5, 1fr);
+            border-bottom: 1px solid rgba(42, 42, 66, 0.2);
+        }
+
+        .sheet-row .sheet-cell:first-child {
+            color: #5a5a7a;
+            background: rgba(20, 20, 40, 0.3);
+        }
+
+        .features {
+            display: flex;
+            gap: 16px;
+            margin-top: 8px;
+        }
+
+        .feature-card {
+            padding: 16px 20px;
+            background: rgba(20, 20, 40, 0.6);
+            border: 1px solid rgba(42, 42, 66, 0.5);
+            border-radius: 14px;
+            text-align: center;
+            width: 140px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: rgba(52, 211, 153, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+        }
+
+        .feature-name {
+            font-size: 11px;
+            font-weight: 600;
+            color: #9a9ab8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <span class="header-icon">📋</span>
+        <span class="header-title">Horizon Sheet Studio</span>
+        <span class="header-badge">Coming Soon</span>
+    </div>
+
+    <div class="main">
+        <div class="logo">📋</div>
+        <div class="title">Sheet Studio</div>
+        <div class="subtitle">Intelligent spreadsheets powered by AI</div>
+        <div class="coming-soon">✦ Coming Soon</div>
+
+        <div class="spreadsheet-preview">
+            <div class="sheet-header">
+                <div class="sheet-cell"></div>
+                <div class="sheet-cell">A</div>
+                <div class="sheet-cell">B</div>
+                <div class="sheet-cell">C</div>
+                <div class="sheet-cell">D</div>
+                <div class="sheet-cell">E</div>
+            </div>
+            <div class="sheet-row">
+                <div class="sheet-cell">1</div>
+                <div class="sheet-cell" style="color:#34d399">Name</div>
+                <div class="sheet-cell" style="color:#34d399">Value</div>
+                <div class="sheet-cell" style="color:#34d399">Status</div>
+                <div class="sheet-cell" style="color:#34d399">Date</div>
+                <div class="sheet-cell" style="color:#34d399">Score</div>
+            </div>
+            <div class="sheet-row">
+                <div class="sheet-cell">2</div>
+                <div class="sheet-cell">Alpha</div>
+                <div class="sheet-cell">42.5</div>
+                <div class="sheet-cell">✓</div>
+                <div class="sheet-cell">Feb 11</div>
+                <div class="sheet-cell">98%</div>
+            </div>
+            <div class="sheet-row">
+                <div class="sheet-cell">3</div>
+                <div class="sheet-cell">Beta</div>
+                <div class="sheet-cell">87.3</div>
+                <div class="sheet-cell">⏳</div>
+                <div class="sheet-cell">Feb 12</div>
+                <div class="sheet-cell">76%</div>
+            </div>
+        </div>
+
+        <div class="features">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-name">Smart Charts</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧮</div>
+                <div class="feature-name">AI Formulas</div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📁</div>
+                <div class="feature-name">Import/Export</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

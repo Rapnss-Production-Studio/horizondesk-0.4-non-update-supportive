@@ -1,0 +1,2 @@
+[console_scripts]
+horizondesk-sdk = horizondesk_sdk.cli:main

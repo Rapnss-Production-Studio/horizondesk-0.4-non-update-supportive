@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="fileGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#818cf8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#a78bfa;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Shadow -->
+  <ellipse cx="128" cy="235" rx="70" ry="12" fill="rgba(0,0,0,0.25)"/>
+  
+  <!-- File body with curved corners -->
+  <path d="M55 15 L155 15 L200 60 L200 225 Q200 240 185 240 L55 240 Q40 240 40 225 L40 30 Q40 15 55 15 Z" 
+        fill="url(#fileGrad)"
+        filter="url(#glow)"/>
+  
+  <!-- Folded corner -->
+  <path d="M155 15 L155 45 Q155 60 170 60 L200 60 Z" 
+        fill="rgba(255,255,255,0.4)"/>
+  
+  <!-- Glassmorphism highlight -->
+  <path d="M55 20 L150 20 L150 25 Q150 35 140 35 L55 35 Q45 35 45 30 L45 25 Q45 20 55 20 Z" 
+        fill="rgba(255,255,255,0.3)"/>
+  
+  <!-- Document lines -->
+  <rect x="65" y="90" width="110" height="8" rx="4" fill="rgba(255,255,255,0.5)"/>
+  <rect x="65" y="115" width="90" height="8" rx="4" fill="rgba(255,255,255,0.4)"/>
+  <rect x="65" y="140" width="100" height="8" rx="4" fill="rgba(255,255,255,0.35)"/>
+  <rect x="65" y="165" width="70" height="8" rx="4" fill="rgba(255,255,255,0.3)"/>
+</svg>
